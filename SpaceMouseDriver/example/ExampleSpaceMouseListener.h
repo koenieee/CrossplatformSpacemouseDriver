@@ -2,10 +2,10 @@
 #include "../driver/SpaceMouseListener.h"
 #include <iostream>
 
-class VisibleSpaceMouseListener : public SpaceMouseListener
+class ExampleSpaceMouseListener : public SpaceMouseListener
 {
 public:
-    VisibleSpaceMouseListener();
+    ExampleSpaceMouseListener();
 
     bool isSpaceMouseActive() override;
     void setSpaceMouseActive(bool value) override;

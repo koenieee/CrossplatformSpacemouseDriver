@@ -1,5 +1,4 @@
 #include "gui/MainWidget.h"
-#include "gui/VisibleSpaceMouseListener.h"
 #include "driver/SpaceMouseController.h"
 #include <QApplication>
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "geometryengine.h"
+#include "GeometryEngine.h"
 
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
@@ -10,10 +10,12 @@
 #include <QBasicTimer>
 #include <QOpenGLShaderProgram>
 #include <QOpenGLTexture>
+#include "../driver/SpaceMouseListener.h"
+
 
 class GeometryEngine;
 
-class MainWidget : public QOpenGLWidget, protected QOpenGLFunctions
+class MainWidget : public QOpenGLWidget, protected QOpenGLFunctions, public SpaceMouseListener
 {
     Q_OBJECT
 
@@ -21,9 +23,12 @@ public:
     explicit MainWidget(QWidget *parent = 0);
     ~MainWidget();
 
+    bool isSpaceMouseActive() override;
+    void setSpaceMouseActive(bool value) override;
+    void spaceMouseMovement(const int &TX, const int &TY, const int &TZ, const int &RX, const int &RY, const int &RZ) override;
+    void spaceMouseButton(const int &id) override;
+
 protected:
-    void mousePressEvent(QMouseEvent *e) override;
-    void mouseReleaseEvent(QMouseEvent *e) override;
     void timerEvent(QTimerEvent *e) override;
 
     void initializeGL() override;
@@ -44,7 +49,9 @@ private:
 
     QVector2D mousePressPosition;
     QVector3D rotationAxis;
-    qreal angularSpeed;
+    qreal angularSpeed = 2.30;
     QQuaternion rotation;
+
+    bool space_mouse_active = false;
 };
 

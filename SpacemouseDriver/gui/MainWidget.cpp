@@ -5,9 +5,8 @@
 
 MainWidget::MainWidget(QWidget *parent) :
     QOpenGLWidget(parent),
-    geometries(0),
-    texture(0),
-    angularSpeed(0)
+    geometries(nullptr),
+    texture(nullptr)
 {
 }
 
@@ -21,46 +20,47 @@ MainWidget::~MainWidget()
     doneCurrent();
 }
 
-void MainWidget::mousePressEvent(QMouseEvent *e)
+bool MainWidget::isSpaceMouseActive()
 {
-    // Save mouse press position
-    mousePressPosition = QVector2D(e->localPos());
+    return space_mouse_active;
 }
 
-void MainWidget::mouseReleaseEvent(QMouseEvent *e)
+void MainWidget::setSpaceMouseActive(bool value)
 {
-    // Mouse release position - mouse press position
-    QVector2D diff = QVector2D(e->localPos()) - mousePressPosition;
+    space_mouse_active = value;
+}
 
-    // Rotation axis is perpendicular to the mouse position difference
+void MainWidget::spaceMouseMovement(const int &TX, const int &TY, const int &TZ, const int &RX, const int &RY, const int &RZ)
+{
     // vector
-    QVector3D n = QVector3D(diff.y(), diff.x(), 0.0).normalized();
+    QVector3D object_rotation = QVector3D(RX, RY, RZ).normalized();
 
-    // Accelerate angular speed relative to the length of the mouse sweep
-    qreal acc = diff.length() / 100.0;
 
-    // Calculate new rotation axis as weighted sum
-    rotationAxis = (rotationAxis * angularSpeed + n * acc).normalized();
+    rotationAxis = (object_rotation).normalized();
 
-    // Increase angular speed
-    angularSpeed += acc;
+    qDebug() << "rotationAxis: " << rotationAxis;
+    TX;
+    TY;
+    TZ;
+}
+
+void MainWidget::spaceMouseButton(const int &id)
+{
+    switch(id){
+    case 1: angularSpeed -= 1.50;
+    case 2: angularSpeed += 0.50;
+    }
+
+    qDebug() << "spaceMouseButton: " << id<< "\n";
 }
 
 void MainWidget::timerEvent(QTimerEvent *)
 {
-    // Decrease angular speed (friction)
-    angularSpeed *= 0.99;
+    rotation = QQuaternion::fromAxisAndAngle(rotationAxis, angularSpeed) * rotation;
 
-    // Stop rotation when speed goes below threshold
-    if (angularSpeed < 0.01) {
-        angularSpeed = 0.0;
-    } else {
-        // Update rotation
-        rotation = QQuaternion::fromAxisAndAngle(rotationAxis, angularSpeed) * rotation;
+    // Request an update
+    update();
 
-        // Request an update
-        update();
-    }
 }
 
 void MainWidget::initializeGL()

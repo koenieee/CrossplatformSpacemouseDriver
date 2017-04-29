@@ -11,9 +11,7 @@ int main(int argc, char *argv[])
     QSurfaceFormat format;
     format.setDepthBufferSize(24);
     QSurfaceFormat::setDefaultFormat(format);
-
-    SpaceMouseListener * the_listener = new VisibleSpaceMouseListener();
-    SpaceMouseController * current_controller = new SpaceMouseController(the_listener);
+    SpaceMouseController * current_controller = new SpaceMouseController(&w);
 
     w.show();
     return  a.exec();

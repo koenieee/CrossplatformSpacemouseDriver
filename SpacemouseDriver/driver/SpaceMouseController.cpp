@@ -53,7 +53,6 @@ bool SpaceMouseController::initialize()
 	
 	unsigned short current_vendor_id = 0x0;
 	unsigned short current_product_id = 0x0;
-	int res;
 
 	devs = hid_enumerate(0x0, 0x0);
     m_cur_dev = devs;

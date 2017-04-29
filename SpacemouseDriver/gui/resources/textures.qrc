@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="textures/">
+        <file>cube.png</file>
+    </qresource>
+</RCC>

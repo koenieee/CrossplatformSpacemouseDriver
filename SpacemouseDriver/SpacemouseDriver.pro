@@ -13,14 +13,26 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        gui/visible3dobject.cpp \
     driver/SpaceMouseController.cpp \
-    gui/VisibleSpaceMouseListener.cpp
+    gui/VisibleSpaceMouseListener.cpp \
+    gui/MainWidget.cpp \
+    gui/GeometryEngine.cpp
 
-HEADERS  += gui/visible3dobject.h \
+HEADERS  += \
     driver/hidapi.h \
     driver/SpaceMouseListener.h \
     driver/SpaceMouseController.h \
-    gui/VisibleSpaceMouseListener.h
+    gui/VisibleSpaceMouseListener.h \
+    gui/MainWidget.h \
+    gui/GeometryEngine.h
 
 FORMS    += gui/visible3dobject.ui
+
+RESOURCES += \
+    gui/resources/shaders.qrc \
+    gui/resources/textures.qrc
+
+LIBS += -L"$$PWD/lib/x64/" -lhidapi
+
+
+

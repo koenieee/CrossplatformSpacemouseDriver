@@ -26,8 +26,6 @@ HEADERS  += \
     gui/MainWidget.h \
     gui/GeometryEngine.h
 
-FORMS    += gui/visible3dobject.ui
-
 RESOURCES += \
     gui/resources/shaders.qrc \
     gui/resources/textures.qrc

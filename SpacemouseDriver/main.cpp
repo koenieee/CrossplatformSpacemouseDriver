@@ -1,4 +1,4 @@
-#include "gui/visible3dobject.h"
+#include "gui/MainWidget.h"
 #include "gui/VisibleSpaceMouseListener.h"
 #include "driver/SpaceMouseController.h"
 #include <QApplication>
@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Visible3DObject w;
+    MainWidget w;
 
     QSurfaceFormat format;
     format.setDepthBufferSize(24);

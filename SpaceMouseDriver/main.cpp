@@ -12,6 +12,9 @@ int main(int argc, char *argv[])
     QSurfaceFormat::setDefaultFormat(format);
     SpaceMouseController * current_controller = new SpaceMouseController(&w);
 
+    //just using the variable to disable the compiler warning current-controller isn't used.
+    (void)current_controller;
+
     w.show();
     return  a.exec();
 }

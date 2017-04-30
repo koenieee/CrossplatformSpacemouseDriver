@@ -32,12 +32,17 @@ RESOURCES += \
 
 win32 {
 !contains(QMAKE_TARGET.arch, x86_64) {
-        message("x86 build")
+        message("Windows - x86 build")
         LIBS += -L"$$PWD/lib/windows/x86/" -lhidapi
     } else {
-        message("x86_64 build")
+        message("Windows - x86_64 build")
         LIBS += -L"$$PWD/lib/windows/x64/" -lhidapi
     }
+}
+
+linux {
+    message("Linux build")
+    LIBS += -L"$$PWD/lib/linux" -lhidapi-hidraw
 }
 
 

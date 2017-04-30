@@ -18,9 +18,9 @@ static const int _3DCONNEXION_SPACEPILOTPRO = 0xc629;			// 50729
 
 
 SpaceMouseController::SpaceMouseController(SpaceMouseListener * listener)
-    : m_current_listener(listener)
+    : m_retrieved_data()
     , m_thread(nullptr)
-    , m_retrieved_data()
+    , m_current_listener(listener)
 {
 
     m_mouse_found = initialize();

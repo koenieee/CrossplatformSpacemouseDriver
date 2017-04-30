@@ -39,9 +39,9 @@ void MainWidget::spaceMouseMovement(const int &TX, const int &TY, const int &TZ,
     rotationAxis = (object_rotation).normalized();
 
     qDebug() << "rotationAxis: " << rotationAxis;
-    TX;
-    TY;
-    TZ;
+    (void)TX;
+    (void)TY;
+    (void)TZ;
 }
 
 void MainWidget::spaceMouseButton(const int &id)

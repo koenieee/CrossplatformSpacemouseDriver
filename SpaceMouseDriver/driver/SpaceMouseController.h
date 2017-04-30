@@ -17,8 +17,8 @@ class SpaceMouseController
 public:
     SpaceMouseController(SpaceMouseListener * spacemouse_listener);
     ~SpaceMouseController();
-	void run();
-	void stop();
+    void run();
+    void stop();
 
 private:
 
@@ -36,7 +36,8 @@ private:
     unsigned char	m_retrieved_data[7] = { 0 };
 
 
-    enum class DATATYPE {
+    enum class DATATYPE
+    {
         TRANSLATION =       1,
         ROTATION    =       2,
         BUTTON      =       3
@@ -47,14 +48,14 @@ private:
     struct hid_device_info *        m_cur_dev;
     SpaceMouseListener *            m_current_listener;
 
-	void processData();
+    void processData();
     bool initialize();
-	int convertInput(int first, unsigned char val);
+    int convertInput(int first, unsigned char val);
 
 
 
 
-	
+
 };
 
 

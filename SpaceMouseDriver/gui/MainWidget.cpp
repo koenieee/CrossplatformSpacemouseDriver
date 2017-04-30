@@ -46,9 +46,12 @@ void MainWidget::spaceMouseMovement(const int &TX, const int &TY, const int &TZ,
 
 void MainWidget::spaceMouseButton(const int &id)
 {
-    switch(id){
-    case 1: angularSpeed -= 1.50;
-    case 2: angularSpeed += 0.50;
+    switch(id)
+    {
+    case 1:
+        angularSpeed -= 1.50;
+    case 2:
+        angularSpeed += 0.50;
     }
 
     qDebug() << "spaceMouseButton: " << id<< "\n";

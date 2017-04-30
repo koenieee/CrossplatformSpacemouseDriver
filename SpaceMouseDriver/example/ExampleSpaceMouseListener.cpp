@@ -21,11 +21,11 @@ void ExampleSpaceMouseListener::spaceMouseMovement(const int &TX, const int &TY,
 {
     std::cout << "ExampleSpaceMouseListener::spaceMouseMovement: ";
     std::cout << " tx: " << TX <<
-                 " ty: " << TY <<
-                 " tz: " << TZ <<
-                 " rx: " << RX <<
-                 " ry: " << RY <<
-                 " rz: " << RZ<< "\n";
+              " ty: " << TY <<
+              " tz: " << TZ <<
+              " rx: " << RX <<
+              " ry: " << RY <<
+              " rz: " << RZ<< "\n";
 }
 
 void ExampleSpaceMouseListener::spaceMouseButton(const int &id)

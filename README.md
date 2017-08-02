@@ -7,3 +7,11 @@ The example works under Windows 10 Enterprise 64/32bit, Ubuntu 16.10 64/32bit, M
 
 
 I even think it's possible to enable android support with USB-otg. But not sure about that.
+
+# Keywords
+
+- Crossplatform
+- Spacemouse
+- SpaceNavigator
+- Driver
+
